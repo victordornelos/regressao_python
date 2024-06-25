@@ -45,11 +45,25 @@ A fórmula genérica da regressão é:
 
 Onde:
 
-- \( Y \) é a variável dependente.
-- \( \beta_0 \) é o coeficiente de interceptação, representando o valor de \( Y \) quando \( X \) é zero.
-- \( \beta_1 \) é o coeficiente angular, indicando o impacto de uma variação unitária em \( X \) sobre \( Y \).
-- \( X \) é a variável independente.
-- \( \epsilon \) são os resíduos do modelo.
+- **Y** é a variável dependente.
+- **β₀** é o coeficiente de interceptação, representando o valor de **Y** quando **X** é zero.
+- **β₁** é o coeficiente angular, indicando o impacto de uma variação unitária em **X** sobre **Y**.
+- **X** é a variável independente.
+- **ϵ** são os resíduos do modelo.
+
+Para que o método OLS seja efetivo, diversos pressupostos devem ser atendidos:
+- Amostragem ampla e aleatória dos dados.
+- Distribuição normal dos dados.
+- Autocorrelação inexistente, isto é, os resíduos não dependem de observações passadas.
+- Homocedasticidade, ou seja, variância constante dos resíduos ao longo da série.
+- Não correlação entre as variáveis e/ou resíduos.
+- Resíduos distribuídos de forma aleatória, sem padrões discerníveis.
+
+Além disso, é essencial validar os resultados através de testes de hipótese. Comumente, utiliza-se o p-valor para determinar a probabilidade de rejeitar a hipótese nula dentro de um nível de significância estatístico pré-estabelecido.
+
+Um desafio frequente é lidar com violações dos pressupostos do OLS. Soluções comuns incluem transformações dos dados, como a aplicação de logaritmos ou raízes quadradas, para corrigir problemas como distribuição não normal e heterocedasticidade, além de linearizar relações. Outra abordagem é o uso de erros padrão robustos, como o método Huber-White, que utiliza os resíduos quadrados para ponderar a variância dos estimadores, ajudando a mitigar problemas como heterocedasticidade.
+
+Este resumo sobre o modelo de regressão linear visa facilitar a análise dos fatores que impactam os custos de planos de saúde. Entretanto, a econometria é um campo complexo que requer um estudo aprofundado. Recomenda-se a consulta de manuais especializados para uma compreensão mais completa do tema.
 
 
 
