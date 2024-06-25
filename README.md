@@ -1,5 +1,4 @@
-# Análise dos Fatores que Influenciam os Custos de Planos de Saúde Através de Regressão Linear com Python
-
+# Análise dos fatores que influenciam os custos de planos de saúde 
 ![Jupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange?style=for-the-badge&logo=Jupyter)
 ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -14,8 +13,43 @@
 ## Sumário
 1. [Descrição]()
 2. [Objetivo]()
-3. [Regressão linear]()
+3. [Regressão Linear]()
 4. [Metodologia]()
 5. [Resultados]()
 6. [Referências]()
+
+## 1. Descrição
+
+A **Econometria** é uma ferramenta essencial para economistas, pois emprega métodos matemáticos e estatísticos para analisar dados econômicos. Essa abordagem permite verificar relações entre diversas variáveis, facilitando decisões estratégicas tanto em políticas públicas quanto no setor empresarial.
+
+Os **métodos econométricos** são particularmente úteis para realizar **inferências causais**, o que é crucial para compreender e analisar diferentes objetos de estudo. Com o avanço das ciências de dados, os métodos econométricos tornaram-se mais sofisticados, aumentando sua eficiência para lidar com situações específicas.
+
+Um dos métodos mais utilizados é a **Regressão Linear**. Esta técnica, ao analisar um conjunto de observações, permite investigar relações de dependência causal em relação à variável de interesse. Para ilustrar a aplicação deste modelo, realizaremos uma análise dos custos individuais dos planos de saúde, identificando os fatores que mais os impactam.
+
+## 2. Objetivo
+
+O **objetivo** desta análise é **aplicar** e **descrever** o método de regressão linear, buscando a aderência aos pressupostos desse modelo. Pretendo observar os resultados e identificar quais variáveis exercem maior impacto nos custos individuais dos planos de saúde. 
+
+Esta investigação visa auxiliar na compreensão dos hábitos e fatores que mais contribuem para a necessidade de serviços médicos, funcionando como um alerta para potenciais áreas de intervenção e melhoria na gestão da saúde.
+
+## 3. Regressão Linear
+A **Regressão Linear** é um método clássico utilizado para estimar inferências causais entre variáveis. Tipicamente, utiliza-se uma variável dependente Y, uma variável independente X, e outras variáveis de controle para robustecer o modelo e aumentar sua eficácia.
+
+A premissa fundamental da regressão linear é que X possa prever Y de maneira linear. Isso é alcançado através da criação de uma linha que minimiza os resíduos quadráticos, utilizando o método dos **Mínimos Quadrados Ordinários** (OLS).
+
+A fórmula genérica da regressão é:
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.latex?\color{white}Y=\beta_0+\beta_1X+\epsilon">
+</p>
+
+Onde:
+
+- \( Y \) é a variável dependente.
+- \( \beta_0 \) é o coeficiente de interceptação, representando o valor de \( Y \) quando \( X \) é zero.
+- \( \beta_1 \) é o coeficiente angular, indicando o impacto de uma variação unitária em \( X \) sobre \( Y \).
+- \( X \) é a variável independente.
+- \( \epsilon \) são os resíduos do modelo.
+
+
 
