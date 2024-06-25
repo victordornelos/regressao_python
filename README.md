@@ -65,5 +65,90 @@ Um desafio frequente é lidar com violações dos pressupostos do OLS. Soluçõe
 
 Este resumo sobre o modelo de regressão linear visa facilitar a análise dos fatores que impactam os custos de planos de saúde. Entretanto, a econometria é um campo complexo que requer um estudo aprofundado. Recomenda-se a consulta de manuais especializados para uma compreensão mais completa do tema.
 
+## 4. Metodologia
+
+Para realizar esta análise, foi utilizado um conjunto de dados disponível no Kaggle, contendo informações sobre indivíduos com variáveis como idade, Índice de Massa Corporal (IMC), status de fumante, sexo, filhos e custos associados. Informações sobre a localidade dos indivíduos também estavam disponíveis, mas foram descartadas para manter a análise em um contexto mais geral.
+
+A ferramenta de análise escolhida foi a linguagem Python, utilizando o ambiente Jupyter Notebook. Inicialmente, as bibliotecas necessárias foram carregadas. Posteriormente, realizou-se uma exploração inicial dos dados, incluindo a criação de gráficos de dispersão para uma visualização preliminar das relações entre as variáveis. Finalmente, procedeu-se à implementação da regressão linear utilizando erros padrão robustos do tipo HC e transformação logarítmica para uma estimativa mais precisa. A análise foi concluída com uma verificação dos resíduos, a fim de validar as suposições do modelo foram respeitadas.
+
+Carregando as bibliotecas necessárias
+
+```python
+# Bibliotecas necessárias 
+import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+```
+
+Visualização gráfica dos dados (o restante dos gráficos estarão no código)
+
+```python
+# Gráfico de dispersão
+plt.figure(figsize=(10, 8))
+
+sns.scatterplot(data=df, x='age', y='charges', hue='smoker', palette=['blue', 'red'], alpha=0.6)
+sns.regplot(data=df, x='age', y='charges', scatter=False, color='gray')
+
+plt.title('Gráfico de dispersão Custo x Idade comparando com fumante', fontweight='bold')
+plt.xlabel('Idade', fontweight='bold')
+plt.ylabel('Custos', fontweight='bold')
+plt.grid(False)
+plt.legend(title='Fumante')
+plt.show()
+```
+Aplicando log e realizando o modelo
+
+```python
+# Aplicando log
+df['charges'] = np.log(df['charges'])
+
+#Criando o modelo
+model = smf.ols(formula='charges ~ age + sex + bmi + smoker + children', data=df).fit()
+robust_model = model.get_robustcov_results(cov_type='HC3')
+robust_model.summary()
+```
+
+Explorando os resíduos
+
+```python
+# Gráfico de dispersão
+residuals = robust_model.resid
+
+plt.figure(figsize=(10,8))
+sns.scatterplot(x=range(len(residuals)),y=residuals)
+plt.axhline(y=0, color='r', linestyle='--')
+plt.title('Gráfico de dispersão dos resíduos',fontweight='bold')
+plt.xlabel('valor dos resíduos',fontweight='bold')
+plt.ylabel('Observações',fontweight='bold')
+plt.grid(False)
+
+```
+```python
+# Curva de densidade
+plt.figure(figsize=(10, 6))
+sns.kdeplot(residuals, color="blue", fill=True)
+plt.title('Curva de Densidade dos Resíduos')
+plt.xlabel('Resíduos')
+plt.ylabel('Densidade')
+plt.show()
+```
+
+```python
+# Teste de homocedasticidade
+from statsmodels.stats.diagnostic import het_breuschpagan
+
+X = robust_model.model.exog 
+bp_test = het_breuschpagan(residuals, X)
+
+bp_value, bp_pvalue, f_value, f_pvalue = bp_test
+
+print("Valor de Breusch-Pagan:", bp_value)
+print("P-valor de Breusch-Pagan:", bp_pvalue)
+print("Valor F:", f_value)
+print("P-valor F:", f_pvalue)
+```
 
 
