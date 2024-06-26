@@ -11,12 +11,12 @@
 **Linkedin:** [Victor Flávio Pereira Dornelos](https://www.linkedin.com/in/victor-flavio-pereira-dornelos/)
 
 ## Sumário
-1. [Descrição]()
-2. [Objetivo]()
-3. [Regressão Linear]()
-4. [Metodologia]()
-5. [Resultados]()
-6. [Referências]()
+1. [Descrição](https://github.com/victordornelos/regressao_python#1-descrição)
+2. [Objetivo](https://github.com/victordornelos/regressao_python#2-objetivo)
+3. [Regressão Linear](https://github.com/victordornelos/regressao_python#3-regressão-linear)
+4. [Metodologia](https://github.com/victordornelos/regressao_python#4-metodologia)
+5. [Resultados](https://github.com/victordornelos/regressao_python#5-resultados)
+6. [Referências](https://github.com/victordornelos/regressao_python#6-referências)
 
 ## 1. Descrição
 
